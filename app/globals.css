@@ -24,3 +24,25 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Animaciones usadas en la UI */
+.keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes growHeight {
+  from { transform: scaleY(0); opacity: 0; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+
+/* Duraciones aumentadas para una entrada más suave */
+.animate-fadeIn { animation: fadeIn 700ms ease both; }
+.animate-fadeInUp { animation: fadeInUp 700ms cubic-bezier(.2,.9,.3,1) both; }
+.animate-growHeight { transform-origin: top center; animation: growHeight 700ms ease both; }
+

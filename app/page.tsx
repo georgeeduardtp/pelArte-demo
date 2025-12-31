@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Star, Instagram, Facebook, Phone, MapPin, Clock } from 'lucide-react';
+import { Menu, X, Star, Instagram, Facebook, Phone, MapPin, Clock, Calendar } from 'lucide-react';
 import ConfirmationAlert from './components/ConfirmationAlert';
 import Image from "next/image"; // Importado, pero usaremos <img> para evitar configurar dominios externos ahora mismo
+import Link from 'next/link';
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -258,7 +259,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-2 gap-8">
             {homeStaff.map((staff) => (
               <div key={staff.id} className="group">
-                <div className="h-[240px] w-full mb-6 overflow-hidden relative">
+                <div className="h-[240px] md:h-[450px] w-full mb-6 overflow-hidden relative">
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
                     <span className="text-white text-xs tracking-[0.2em] uppercase border border-white px-6 py-3">Ver Perfil</span>
                   </div>
@@ -347,6 +348,18 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Floating CTA: aparece al hacer scroll */}
+      {isScrolled && (
+        <Link
+          href="/reservas"
+          className="fixed bottom-4 right-4 z-50 bg-[#C5A059] text-black px-4 py-2 rounded-full shadow-lg uppercase font-bold tracking-[0.12em] hover:scale-105 transition-transform duration-200 flex items-center gap-2 text-sm animate-fadeInUp duration-700"
+          aria-label="Pedir cita"
+        >
+          <Calendar className="w-4 h-4" />
+          <span>Pedir Cita</span>
+        </Link>
+      )}
     </div>
   );
 };

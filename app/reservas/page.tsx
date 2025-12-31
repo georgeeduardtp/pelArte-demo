@@ -181,10 +181,10 @@ export default function BookingPage() {
                   className={`border p-0 cursor-pointer transition-all duration-300 group relative overflow-hidden
                     ${selection.staff?.id === staff.id ? 'border-black' : 'border-neutral-200 hover:border-[#C5A059]'}`}
                 >
-                  <div className="h-36 md:h-48 w-full overflow-hidden">
-                     <img src={staff.image} alt={staff.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                  <div className="h-36 md:h-64 w-full overflow-hidden">
+                    <img src={staff.image} alt={staff.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                   </div>
-                  <div className={`p-3 md:p-6 text-center ${selection.staff?.id === staff.id ? 'bg-black text-white' : 'bg-white'}`}>
+                  <div className={`p-3 md:p-8 text-center ${selection.staff?.id === staff.id ? 'bg-black text-white' : 'bg-white'}`}>
                     <h4 className="text-lg font-serif mb-1">{staff.name}</h4>
                     <p className={`text-xs uppercase tracking-widest ${selection.staff?.id === staff.id ? goldColor : 'text-neutral-500'}`}>{staff.role}</p>
                   </div>
